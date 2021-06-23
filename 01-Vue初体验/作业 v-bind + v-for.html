@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .active{
+            color: blue;
+        }
+
+        .line{
+            font-size: 100px;
+        }
+
+    </style>
+</head>
+<body>
+  
+    <div id="app" >
+        <ul>
+            <li :class="{active: currentIndex === index}" 
+                v-for="(m, index) in movies" 
+                @click="liClick(index)">
+                {{index}}-{{m}}
+            </li>
+            <!-- <button v-on:click="changeColor(0)" :class="{active: currentIndex === index}">aa</button> -->
+
+            <!-- <button  :class="{active:isActive}"  @click="changeColor">hh</button> -->
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app', //用于挂在要管理的元素
+            data: {    //定义数据
+               movies: ['a', 'b', 'c', 'd'],
+               isActive: false,           
+               currentIndex: -1,     //    重要
+            },
+            methods:{
+                getClasses: function(){
+                    return {active:this.isActive, line:this.isLine}
+                },
+                liClick(index) {
+                    this.currentIndex = index
+                },
+            }
+        })
+
+    </script>
+</body>
+</html> 

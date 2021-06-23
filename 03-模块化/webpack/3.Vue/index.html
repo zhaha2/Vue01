@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app"> 
+  </div>
+  
+  <!-- 配置
+        法1.D:\Coding\frontend\Vue01\03-模块化\webpack\1.起步> webpack ./src/main.js ./dist/bundle.js
+        只要是终端打webpack命令，使用的都是全局webpack 
+        应该用项目自带的（用npm run build） 再package.json里改build 见3. -->
+
+  <!-- 法2.使用配置文件 -->
+  <!-- node依赖
+       1) npm init
+       2) packagename: meetwebpack
+       3) entry point: index.js
+       npm install
+        -->
+
+  <!-- 3.项目本地安装webpack npm install webpack@3.6.0 --save-dev -->
+
+  <!-- 4.安装loader npm install --save-dev css-loader@0.20.1
+          npm install --save-dev style-loader@0.23.1
+          mian.js依赖css文件。然后在webpack.config.js加module
+          
+          npm install less@3.9.0 less-loader@4.1.0 --save-dev
+
+          npm install url-loader@1.1.2 --save-dev
+          npm install file-loader@2.0.0 --save-dev 
+
+          npm install --save-dev babel-loader@7.1.5 babel-core@6.26.3 babel-preset-es2015@6.24.1
+        -->
+
+
+  <!--  5.安装Vue
+          npm install vue --save  -->
+
+  <!--  6.安装Vue-loader 编译.vue文件，只是开发时候用
+          npm install vue-loader vue-template-compiler --save-dev -->
+
+  <!--  7.插件使用
+          npm install html-webpack-plugin@3.2.0 --save-dev 
+
+          ClI2才用下面这个
+          npm install uglifyjs-webpack-plugin@1.1.1 --save-dev 
+          
+          npm install webpack-dev-server@2.9.3 --save-dev 
+        
+          npm install webpack-merge@4.1.5 --save-dev-->
+
+  <!-- <script src="./dist/bundle.js"></script> -->
+
+</body>
+</html>

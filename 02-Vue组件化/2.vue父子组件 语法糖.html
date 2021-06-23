@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body> 
+  <div id="app">
+    <!-- 使用cpn2的时候 ，cpn2的模板已经解析确定了，所以不知道cpn1（除非再全局找到）-->
+    <cpn2></cpn2>
+    <hr>
+    <!-- 4.报错 -->
+    <cpn1></cpn1>   
+  </div>
+
+  <script src="../js/vue.js"></script>
+  
+  <script>
+    // 1.创建第一个组件构造器对象（子组件）
+    // const cpnConstructor1 = Vue.extend({
+    //   template: `
+    //   <div id="app">
+    //     <h2 >title1</h2>
+    //     <p>content</p>
+    //     <p>content2</p>
+    //   </div>`
+    //   ,
+    // })
+
+    // 2.创建第二个组件构造器对象(父组件)
+    // const cpnConstructor2 = Vue.extend({
+      // template: `
+      // <div id="app">
+      //   <h2 >title2</h2>
+      //   <p>content</p>
+      //   <p>content2</p>
+      //   <cpn1></cpn1>
+      // </div>`
+    //   ,
+    //   components: {
+    //     // 3.注册组件1（components再构造器对象里）
+    //     cpn1: cpnConstructor1,
+    //   },
+    // })
+
+    // 01.全局组件语法糖
+    // 02.注册组件
+    Vue.component('cpn1', {
+      template: `
+      <div id="app">
+        <h2 >title1</h2>
+        <p>content</p>
+        <p>content2</p>
+      </div>`
+      ,
+    })
+
+
+
+    // root组件
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello',
+        isShow: true
+      },
+      components: {
+        // 4.注册组件2（components再vue对象里）
+        // cpn2: cpnConstructor2,
+        // 03.局部组件语法糖
+        'cpn2': {
+          template: `
+          <div id="app">
+            <h2 >title2</h2>
+            <p>content</p>
+            <p>content2</p>
+            <cpn1></cpn1>
+          </div>`,
+        }
+      },
+    })
+  </script>
+</body>
+</html>

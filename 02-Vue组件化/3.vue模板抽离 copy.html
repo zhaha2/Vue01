@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body> 
+  <div id="app">
+    <cpn1></cpn1>
+    <cpn1></cpn1>
+    <cpn1></cpn1>
+  </div>
+
+  <!-- 法1.script标签,注意:类型必须为"text/x-template" -->
+  <!-- <script type="text/x-template" id="cpn1">
+    <div>
+      <h2 >title1</h2>
+      <p>content</p>
+      <p>content2</p>
+    </div>
+  </script> -->
+
+  <!-- 法2.template标签 -->
+  <template id="cpn1">
+    <!-- 注意：定义模板必须有一个根，即下面的div -->
+    <div>
+      <h2 >title1</h2>
+      <p>content</p>
+      <p>content2</p>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  
+  <script>
+    // 01.注册全局组件
+    Vue.component('cpn1', {
+      template: '#cpn1',
+    })
+
+    // root组件
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello',
+        isShow: true
+      },
+      components: {
+      },
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body> 
+  <div id="app">
+    <cpn1></cpn1>
+    <cpn1></cpn1>
+    <cpn1></cpn1>
+  </div>
+
+  <template id="cpn1">
+    <div>
+      <h2 >当前计数: {{counter}}</h2>
+      <button @click="increment()">+</button>
+      <button @click="decrement()">-</button>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  
+  <script>
+    Vue.component('cpn1', {
+      template: '#cpn1',
+      // 存放组件内部的数据,是函数不能为对象
+      // 函数每次调用创建新的对象,每次组件互不影响.
+      // 如果返回是对象的话每次都是同一个了,多次调用这个组件会相互影响
+      // 如果想要每次都返回同一个对象,就在外面新建一个
+      data() {
+        return {
+          counter: 0
+        }
+      },
+      methods: {
+        increment(){
+          this.counter++
+        },
+        decrement(){
+          this.counter--
+        },
+      }
+    })
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+      },
+      components: {
+      },
+    })
+  </script>
+</body>
+</html>
