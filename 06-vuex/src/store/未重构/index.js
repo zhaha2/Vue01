@@ -122,7 +122,7 @@ export default new Vuex.Store({
       return getters.more15stus.length
     },
     moreAgestus(state) {
-      // 返回函数以使用传入参数
+      // 返回函数以使用传入参数(getters默认不能传入参数，取而代之可以用返回函数代替)
       // return function (age) {
       //   return state.students.filter(s => s.age >= age)
       // }

@@ -35,7 +35,7 @@
     <h2>more15stus: {{this.$store.getters.more15stus}}</h2>
     <h2>more15stusLen: {{this.$store.getters.more15stusLen}}</h2>
     <!-- 传入参数 -->
-    <h2>moreAgestus: {{this.$store.getters.moreAgestus(20)}}</h2>
+    <h2>moreAgestus: {{this.$store.getters.moreAgestus(1)}}</h2>
 
     <h2>------------Hello Vuex----------------</h2>
     <hello-vuex/>
